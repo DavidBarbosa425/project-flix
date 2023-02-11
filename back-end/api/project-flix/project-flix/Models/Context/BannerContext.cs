@@ -17,7 +17,7 @@ namespace project_flix.Models.Context
 
         public List<Banner> ListBannerContext()
         {
-            List<Banner> Banners = new List<Banner>();
+            List<Banner> banners = new List<Banner>();
 
             try
             {
@@ -31,16 +31,16 @@ namespace project_flix.Models.Context
 
                 while (dataReader.Read())
                 {
-                    Banner Banner = new Banner();
-                    Banner.Id = dataReader.GetInt32("Id");
-                    Banner.Url = dataReader.GetString("url");
-                    Banner.Theme = dataReader.GetString("theme");
-                    Banner.Size = dataReader.GetString("size");
+                    Banner banner = new Banner();
+                    banner.Id = dataReader.GetInt32("Id");
+                    banner.Url = dataReader.GetString("url");
+                    banner.Theme = dataReader.GetString("theme");
+                    banner.Size = dataReader.GetString("size");
 
-                    Banners.Add(Banner);
+                    banners.Add(banner);
                 }
 
-                return Banners;
+                return banners;
             }
             catch (Exception ex)
             {

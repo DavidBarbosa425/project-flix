@@ -16,8 +16,8 @@ namespace project_flix.Models.Services
         {
             try
             {
-                List<Banner> Banners = _bannerRepository.ListBannerRepository();
-                return Banners;
+                List<Banner> banners = _bannerRepository.ListBannerRepository();
+                return banners;
             }
             catch (Exception ex)
             {

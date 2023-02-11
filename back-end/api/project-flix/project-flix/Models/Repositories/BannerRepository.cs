@@ -14,8 +14,8 @@ namespace project_flix.Models.Repositories
 
         public List<Banner> ListBannerRepository()
         {
-            List<Banner> Banners = _context.ListBannerContext();
-            return Banners;
+            List<Banner> banners = _context.ListBannerContext();
+            return banners;
         }
     }
 }
