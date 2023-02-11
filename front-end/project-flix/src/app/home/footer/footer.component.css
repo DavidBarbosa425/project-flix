@@ -1,0 +1,64 @@
+
+footer {
+    background-color: black;
+}
+.container-footer {
+    padding: 10px 0px;
+    width: 70%;
+    margin: auto;
+}
+
+.container-social-media {
+    margin: auto;
+    width: 85%;
+    color: white;
+}
+
+.container-social-media mat-icon {
+    margin: 10px;
+}
+
+.container-informations {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container-informations div {
+    margin: auto;
+}
+
+.container-informations div ul li{
+    list-style-type: none;
+    color: gray;
+    cursor: pointer;
+    margin-left: 20px;
+    padding: 10px;
+}
+.container-informations div ul li:hover{
+    color: white;
+}
+
+.container-service {
+    width: 85%;
+    margin: 10px auto;
+}
+
+section button:hover {
+    color: white;
+}
+section button {
+    background: none;
+    border-color: gray;
+    padding: 5px;
+    color: gray;
+    cursor: pointer;
+}
+
+.container-reservations {
+    width: 85%;
+    margin: auto;
+    padding-bottom: 10px;
+    color: gray;
+    font-size: 65%;
+    
+} 

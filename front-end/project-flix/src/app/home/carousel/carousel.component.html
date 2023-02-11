@@ -1,0 +1,22 @@
+
+<div class="container-carousel" >
+    <button (click)="previous()" class="arrow-left control" aria-label="Previous image">&#171;</button>
+    <button (click)="next()" class="arrow-right control" aria-label="Next image">&#187;</button>
+
+    <h1 class="title-genre">{{movies[0].genre}}</h1>
+
+    <div class="gallery-wrapper">
+
+        <div class="gallery">
+
+            <ng-container *ngFor="let movie of movies" >    
+
+                <img class="item current-item" src="{{movie.poster}}" alt="">
+              
+            </ng-container>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,21 @@
+
+
+
+<div class="container-carousel">
+  <button (click)="previous();restartTimer()" class="arrow-left control banner" aria-label="Previous image">&#171;</button>
+  <button (click)="next();restartTimer()" class="arrow-right control banner" aria-label="Next image">&#187;</button>
+  <div class="gallery-wrapper">
+
+    <div class="gallery">
+        <ng-container *ngFor="let banner of banners">
+
+
+          <img class="item current-item" src="{{banner.url}}" alt="">
+        
+          
+        </ng-container>
+        </div>
+
+  </div>
+
+</div>
