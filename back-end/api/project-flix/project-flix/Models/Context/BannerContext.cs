@@ -21,7 +21,7 @@ namespace project_flix.Models.Context
 
             try
             {
-                string proc = "get_banners";
+                string proc = "get_banner";
                 SqlCommand commSel = new SqlCommand(proc, _connection);
                 commSel.CommandType = CommandType.StoredProcedure;
 

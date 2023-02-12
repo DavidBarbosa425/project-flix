@@ -1,3 +1,5 @@
+import { SearchModule } from './../share/search/search.module';
+import { MaterialModule } from './../material-module/material.module';
 import { CarouselModule } from './carousel/carousel.module';
 import { BannerCarouselModule } from './banner-carousel/banner-carousel.module';
 import { FooterModule } from './footer/footer.module';
@@ -11,6 +13,8 @@ import { NgModule } from '@angular/core';
         BannerCarouselModule,
         CarouselModule,
         FooterModule,
+        MaterialModule,
+        SearchModule
     ],
     exports: [
         HomeComponent,

@@ -17,20 +17,15 @@ import { SearchModule } from './share/search/search.module';
 @NgModule({
   declarations: [
     AppComponent,
-
-
-    
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    SearchModule,
     HttpClientModule,
     CommonModule,
-    HomeModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,184 @@
-  <app-banner-carousel [banners]="banners"></app-banner-carousel>
+  <mat-sidenav-container autosize fullscreen >
+
+  <mat-sidenav #sidenav >
+
+    <mat-nav-list (click)="sidenav.close()" >
+
+      <a mat-list-item>
+        <mat-icon>home</mat-icon>
+        Início
+      </a>
+      
+      <a mat-list-item>
+        <mat-icon>tv</mat-icon>
+        Séries
+      </a>
+      
+      <a mat-list-item>
+        <mat-icon>movie_filter</mat-icon>
+        Filmes
+      </a>
+      
+      <a mat-list-item>
+        <mat-icon>whatshot</mat-icon>
+        Bombando
+      </a>
+      
+      <a mat-list-item>
+        <mat-icon>list</mat-icon>
+        Minha lista
+      </a>
+      
+      <a mat-list-item>
+        <mat-icon>chrome_reader_mode</mat-icon>
+          Navegar por idiomas
+      </a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+  <mat-toolbar [ngStyle]="this.navbg">
+
+    <button mat-icon-button (click)="sidenav.open()" >
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <div fxLayoutAlign="start center" fxHide.lt-md class="menu-left">
+      <a mat-button>
+        <img fxLayoutAlign="center" width="100px" src="../assets/img/Netflix.png" >
+        </a>
+
+        <a mat-button routerLink="">
+            Início
+        </a>
+
+        <a mat-button>
+            Séries
+        </a>
+
+        <a mat-button>
+            Filmes
+        </a>
+
+        <a mat-button>
+            Bombando
+        </a>
+
+        <a mat-button>
+            Minha lista
+        </a>
+
+        <a mat-button>
+            Navegar por idiomas
+        </a>
+
+    </div>
+
+    <div fxFlex="100%"></div>
+
+    <div class="containerSearch" fxLayoutAlign="center" >
+              
+      <div fxLayoutAlign="end" class="search-box" fxHide.lt-sm>
+  
+        <input class="search-txt" matInput placeholder="">
+  
+        <a fxLayoutAlign=" center end">
+          <mat-icon class="searchIcon" appSearch>search</mat-icon>
+        </a>
+        
+      </div>
+    </div>
+
+    <div fxLayoutAlign=" center">
+
+      <div fxHide.lt-sm class="menu-right-nav-itens menu-right-text">
+        <button fxLayoutAlign="center" mat-button >
+           Infantil
+        </button>
+      </div>
+    
+      <div  fxHide.lt-sm class="menu-right-nav-itens">
+        <a fxLayoutAlign="center" class="menu-right-text" [mat-menu-trigger-for]="schedule">
+          <mat-icon>schedule</mat-icon>
+        </a>
+      </div>
+    
+      <mat-menu #schedule>
+     <p>oi</p>
+      </mat-menu>
+    
+      <div class="menu-right-nav-itens">
+        <a mat-button [mat-menu-trigger-for]="dropdown">
+          <img fxLayoutAlign="center" class="smile" src="http://occ-0-1311-1740.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY20DrC9-11ewwAs6nfEgb1vrORxRPP9IGmlW1WtKuaLIz8VxCx5NryzDK3_ez064IsBGdXjVUT59G5IRuFdqZlCJCneepU.png?r=229" >
+        </a>
+      </div>
+    
+      <mat-menu #dropdown>
+        
+        <button mat-menu-item routerLink="/">
+    
+            <mat-icon>account_circle</mat-icon>
+              <span >David</span>
+    
+          </button>
+    
+        <button mat-menu-item routerLink="/about">
+    
+          <mat-icon>child_care</mat-icon>
+          <span>Infantil</span>
+    
+        </button>
+    
+        <button mat-menu-item routerLink="/about">
+    
+          <mat-icon>person_add</mat-icon>
+          <span>Gerenciar perfis</span>
+    
+        </button>
+    
+        <button mat-menu-item routerLink="/about">
+    
+          <mat-icon>people_outline</mat-icon>
+          <span>Transferir perfil</span>
+    
+        </button>
+    
+        <button mat-menu-item routerLink="/about">
+    
+          <mat-icon>account_box</mat-icon>
+          <span>Conta</span>
+    
+        </button>
+    
+        <button mat-menu-item routerLink="/about">
+    
+          <mat-icon>help</mat-icon>
+          <span>Central de ajuda</span>
+    
+        </button>
+    
+        <hr>
+        <button mat-menu-item routerLink="/about">
+    
+          <mat-icon>backspace</mat-icon>
+          <span>Sair da Netflix</span>
+    
+        </button>
+    
+    </mat-menu>
+    </div>
+
+  </mat-toolbar>
+  
+   <app-banner-carousel [banners]="banners"></app-banner-carousel>
   
   <app-carousel [movies]="moviesAction"></app-carousel>
   <app-carousel [movies]="moviesComedy"></app-carousel>
   
   <app-footer></app-footer>
+
+</mat-sidenav-content>
+
+</mat-sidenav-container>

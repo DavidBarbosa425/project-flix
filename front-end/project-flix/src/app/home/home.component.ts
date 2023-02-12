@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
 
   constructor(private service: BannerCarouselService) {}
@@ -76,6 +77,7 @@ export class HomeComponent implements OnInit {
   ]
 
   banners: Banner[] = []
+  navbg:any
 
   ngOnInit(): void {
     
@@ -83,6 +85,29 @@ export class HomeComponent implements OnInit {
     .subscribe(banners => {
       this.banners = banners
     })
+
+    let sidenav = document.querySelector('mat-sidenav-content')
+
+    sidenav?.addEventListener('scroll', event => {
+      
+
+      if( sidenav?.scrollTop != undefined) {
+
+        if(sidenav?.scrollTop > 0){
+
+          this.navbg = {
+            'background-color': 'black'
+          }   
+        }
+        else{
+
+          this.navbg = {
+            'background': 'trasnparent'
+          }
+        }
+      }
+    })
   }
 }
+
 

@@ -1,8 +1,70 @@
 
-.home {
-    margin-top: 50px;
-    margin-bottom: 10px;
- }
+ mat-sidenav-container {
+    background: black;
+}
+
+mat-toolbar {
+    background-color: transparent;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+mat-drawer {
+    width: 200px;
+}
+
+mat-toolbar button {
+    color: white;
+}
+
+
+.menu-right-text {
+    color: white;
+}
+
+.smile{
+    border-radius: 30%;
+}
+
+.menu-right-nav-itens {
+    margin-right: 10px;
+}
+
+mat-icon {
+    cursor: pointer;
+}
+
+.menu-left a {
+    color: white;
+}
+
+.search-box {
+    background: white; 
+    color: black;
+    height: 35px;
+    border-radius: 40px;
+    width: 30px;
+    transition-duration: 1s;
+    
+}
+
+.search-txt {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 14px;
+    color: black;
+    width: 100%;
+}
+
+.containerSearch {
+    background-color: none;
+    padding: 0;
+    margin-right: 10px;
+}
+
  
 
 
