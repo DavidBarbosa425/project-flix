@@ -11,7 +11,7 @@
 
             <ng-container *ngFor="let movie of movies" >    
 
-                <img class="item current-item" src="{{movie.poster}}" alt="">
+                <img (click)="openDialog()" class="item current-item" src="{{movie.poster}}" alt="">
               
             </ng-container>
 

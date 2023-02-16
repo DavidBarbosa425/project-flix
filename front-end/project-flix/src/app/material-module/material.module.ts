@@ -8,6 +8,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
         MatIconModule,
         MatButtonModule,
         FlexLayoutModule,
-        MatMenuModule
+        MatMenuModule,
+        MatDialogModule,
+        MatFormFieldModule
     ],
 
     exports: [
@@ -29,8 +33,13 @@ import {MatGridListModule} from '@angular/material/grid-list';
         MatButtonModule,
         FlexLayoutModule,
         MatMenuModule,
-        MatGridListModule
-    ]
+        MatGridListModule,
+        MatDialogModule,
+        MatFormFieldModule
+    ],
+    providers: [
+        {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}
+      ]
 })
 
 export class MaterialModule {

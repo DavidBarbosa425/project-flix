@@ -1,3 +1,4 @@
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { SearchModule } from './../share/search/search.module';
 import { MaterialModule } from './../material-module/material.module';
 import { CarouselModule } from './carousel/carousel.module';
@@ -7,7 +8,10 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
 @NgModule({
-    declarations: [HomeComponent],
+    declarations: [
+        HomeComponent,
+        MovieDetailsComponent
+    ],
     imports: [
         CommonModule,
         BannerCarouselModule,

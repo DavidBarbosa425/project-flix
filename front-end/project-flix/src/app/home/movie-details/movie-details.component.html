@@ -1,0 +1,36 @@
+<div class="details-container">
+
+    <mat-grid-list cols="2" >
+   
+       <h1 mat-dialog-title>
+            <span>{{data.title}}</span>
+       </h1>
+   
+       <mat-grid-tile>
+   
+           <div mat-dialog-content>
+   
+               <p>
+                   {{data.synopsis}}
+               </p>
+   
+               
+            </div>
+            
+            <mat-grid-tile-footer>
+                <div  mat-dialog-actions class="m-2">
+                    <button mat-raised-button color="primary" (click)="watchMovie()">Assistir</button>
+                    <button mat-raised-button color="warn" (click)="backMovies()">Voltar</button>
+                </div> 
+            </mat-grid-tile-footer>
+        </mat-grid-tile>
+        
+        <mat-grid-tile>
+            <img width="65%" src="https://br.web.img2.acsta.net/medias/nmedia/18/89/43/82/20052140.jpg" alt="">
+        </mat-grid-tile>
+        
+    </mat-grid-list>
+
+
+
+</div>   
