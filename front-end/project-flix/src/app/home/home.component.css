@@ -11,6 +11,11 @@ mat-toolbar {
     left: 0;
     right: 0;
 }
+
+mat-sidenav{
+    background-color: black;
+}
+
 mat-drawer {
     width: 200px;
 }
@@ -19,6 +24,13 @@ mat-toolbar button {
     color: white;
 }
 
+.bg-hover:hover{
+    background: linear-gradient(to right, transparent 0%, red 200%);
+}
+
+.bg-title{
+    background: linear-gradient(to right, transparent 0%, red 200%); 
+}
 
 .menu-right-text {
     color: white;

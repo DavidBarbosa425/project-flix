@@ -1,38 +1,39 @@
   <mat-sidenav-container autosize fullscreen >
 
-  <mat-sidenav #sidenav >
+  <mat-sidenav #sidenav>
 
     <mat-nav-list (click)="sidenav.close()" >
 
-      <a mat-list-item>
-        <mat-icon>home</mat-icon>
-        Início
+      <a mat-list-item class="bg-hover">
+            <mat-icon class="text-white">home</mat-icon>
+            <span class="text-white">Início</span>
       </a>
       
-      <a mat-list-item>
-        <mat-icon>tv</mat-icon>
-        Séries
+      <a mat-list-item class="bg-hover">
+          <mat-icon class="text-white">tv</mat-icon>
+          <span class="text-white">Séries</span> 
       </a>
       
-      <a mat-list-item>
-        <mat-icon>movie_filter</mat-icon>
-        Filmes
+      <a mat-list-item class="bg-hover">
+          <mat-icon class="text-white">movie_filter</mat-icon>
+          <span class="text-white">Filmes</span>
       </a>
       
-      <a mat-list-item>
-        <mat-icon>whatshot</mat-icon>
-        Bombando
+      <a mat-list-item class="bg-hover">
+          <mat-icon class="text-white">whatshot</mat-icon>
+          <span class="text-white">Bombando</span> 
       </a>
       
-      <a mat-list-item>
-        <mat-icon>list</mat-icon>
-        Minha lista
+      <a mat-list-item class="bg-hover">
+          <mat-icon class="text-white">list</mat-icon>
+          <span class="text-white">Minha lista</span>   
       </a>
       
-      <a mat-list-item>
-        <mat-icon>chrome_reader_mode</mat-icon>
-          Navegar por idiomas
+      <a mat-list-item class="bg-hover">
+          <mat-icon class="text-white">chrome_reader_mode</mat-icon>
+          <span class="text-white">Navegar por idiomas</span>
       </a>
+
     </mat-nav-list>
 
   </mat-sidenav>
@@ -105,8 +106,27 @@
         </a>
       </div>
     
-      <mat-menu #schedule>
-     <p>oi</p>
+      <mat-menu #schedule class="bg-dark">
+
+        <h2 class="mx-2 text-white bg-title">Últimos adicionados</h2>
+
+        <div class="container text-white">
+            <h3>Vingadores</h3>
+
+            <img width="25%" src="{{moviesAction[0].poster}}" alt="">
+
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores, architecto praesentium commodi fuga corporis laborum ea molestias doloribus fugit perferendis, ex veritatis. Officiis eos ducimus, magni reiciendis voluptatum ea at.</p>
+          
+        </div>
+        <div class="container text-white">
+            <h3>Vingadores</h3>
+
+            <img width="25%" src="{{moviesAction[0].poster}}" alt="">
+
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores, architecto praesentium commodi fuga corporis laborum ea molestias doloribus fugit perferendis, ex veritatis. Officiis eos ducimus, magni reiciendis voluptatum ea at.</p>
+          
+        </div>
+        
       </mat-menu>
     
       <div class="menu-right-nav-itens">
@@ -115,55 +135,56 @@
         </a>
       </div>
     
-      <mat-menu #dropdown>
+      <mat-menu #dropdown class="bg-dark">
         
-        <button mat-menu-item routerLink="/">
+        <button mat-menu-item routerLink="/" class="bg-hover">
     
-            <mat-icon>account_circle</mat-icon>
-              <span >David</span>
-    
-          </button>
-    
-        <button mat-menu-item routerLink="/about">
-    
-          <mat-icon>child_care</mat-icon>
-          <span>Infantil</span>
+            <mat-icon class="text-white">account_circle</mat-icon>
+            <span class="text-white">David</span>
     
         </button>
     
-        <button mat-menu-item routerLink="/about">
+        <button mat-menu-item routerLink="/about" class="bg-hover">
     
-          <mat-icon>person_add</mat-icon>
-          <span>Gerenciar perfis</span>
-    
-        </button>
-    
-        <button mat-menu-item routerLink="/about">
-    
-          <mat-icon>people_outline</mat-icon>
-          <span>Transferir perfil</span>
+            <mat-icon class="text-white">child_care</mat-icon>
+            <span class="text-white">Infantil</span>
     
         </button>
     
-        <button mat-menu-item routerLink="/about">
+        <button mat-menu-item routerLink="/about" class="bg-hover">
     
-          <mat-icon>account_box</mat-icon>
-          <span>Conta</span>
+            <mat-icon class="text-white">person_add</mat-icon>
+            <span class="text-white">Gerenciar perfis</span>
     
         </button>
     
-        <button mat-menu-item routerLink="/about">
+        <button mat-menu-item routerLink="/about" class="bg-hover">
     
-          <mat-icon>help</mat-icon>
-          <span>Central de ajuda</span>
+            <mat-icon class="text-white">people_outline</mat-icon>
+            <span class="text-white">Transferir perfil</span>
     
+        </button>
+    
+        <button mat-menu-item routerLink="/about" class="bg-hover">
+    
+            <mat-icon class="text-white">account_box</mat-icon>
+            <span class="text-white">Conta</span>
+      
+        </button>
+    
+        <button mat-menu-item routerLink="/about" class="bg-hover">
+    
+            <mat-icon class="text-white">help</mat-icon>
+            <span class="text-white">Central de ajuda</span>
+      
         </button>
     
         <hr>
-        <button mat-menu-item routerLink="/about">
+
+        <button mat-menu-item routerLink="/about" class="bg-hover">
     
-          <mat-icon>backspace</mat-icon>
-          <span>Sair da Netflix</span>
+            <mat-icon class="text-white">backspace</mat-icon>
+            <span class="text-white">Sair da Netflix</span>
     
         </button>
     
