@@ -1,6 +1,7 @@
 using project_flix.Models.Context;
 using project_flix.Models.Interfaces;
 using project_flix.Models.Interfaces.IBanner;
+using project_flix.Models.Interfaces.IMovie;
 using project_flix.Models.Repositories;
 using project_flix.Models.Services;
 
@@ -14,6 +15,10 @@ builder.Services.AddScoped<IConnectionManager, ConnectionManager>();
 builder.Services.AddScoped<IBannerContext, BannerContext>();
 builder.Services.AddScoped<IBannerRepository, BannerRepository>();
 builder.Services.AddScoped<IBannerService, BannerService>();
+//Movie
+builder.Services.AddScoped<IMovieContext, MovieContext>();
+builder.Services.AddScoped<IMovieRepository, MovieRepository>();
+builder.Services.AddScoped<IMovieService, MovieService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
