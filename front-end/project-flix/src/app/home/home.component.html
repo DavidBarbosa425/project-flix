@@ -108,22 +108,15 @@
     
       <mat-menu #schedule class="bg-dark">
 
-        <h2 class="mx-2 text-white bg-title">Últimos adicionados</h2>
+        <h2 class="mx-2 text-white bg-title">ÚLTIMOS ADICIONADOS:</h2>
 
-        <div class="container text-white">
-            <h3>Vingadores</h3>
+        <div class="container text-white" *ngFor="let movie of lastMoviesAdded.slice(0,5)">
+            <h3 class="bg-title">{{movie.title | uppercase}}</h3>
 
-            <img width="25%" src="{{moviesAction[0].poster}}" alt="">
+            <img width="25%" src="{{movie.movieCover}}" alt="">
 
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores, architecto praesentium commodi fuga corporis laborum ea molestias doloribus fugit perferendis, ex veritatis. Officiis eos ducimus, magni reiciendis voluptatum ea at.</p>
-          
-        </div>
-        <div class="container text-white">
-            <h3>Vingadores</h3>
-
-            <img width="25%" src="{{moviesAction[0].poster}}" alt="">
-
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores, architecto praesentium commodi fuga corporis laborum ea molestias doloribus fugit perferendis, ex veritatis. Officiis eos ducimus, magni reiciendis voluptatum ea at.</p>
+            <p>{{movie.synopsis}}</p>
+            <button mat-raised-button color="primary" class="mb-5" (click)="watchMovie(movie)">Assistir</button>
           
         </div>
         

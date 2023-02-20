@@ -1,6 +1,8 @@
+import { Router } from '@angular/router';
+import { MovieService } from './services/movie.service';
+import { MovieModel } from './models/movie.model';
 import { BannerCarouselService } from './banner-carousel/banner-carousel.service';
 import { Banner } from './banner-carousel/banner';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,102 +13,81 @@ import { Component, OnInit } from '@angular/core';
 
 export class HomeComponent implements OnInit {
 
-  constructor(private service: BannerCarouselService) {}
+  constructor(
+    private bannerService: BannerCarouselService,
+    private movieSevice: MovieService,
+    private router: Router
+    ) {}
 
-  moviesAction = [
-    {poster: "https://br.web.img2.acsta.net/medias/nmedia/18/89/43/82/20052140.jpg",
-    genre: 'ação'},
-    {poster: "https://br.web.img2.acsta.net/r_1280_720/pictures/21/09/07/23/03/4521710.jpg",
-    genre: 'ação'},
-    {poster: "https://br.web.img3.acsta.net/medias/nmedia/18/90/57/96/20121842.jpg",
-    genre: 'a'},
-    {poster: "https://br.web.img3.acsta.net/pictures/17/11/22/22/35/2368944.jpg",
-    genre: 'ação'},
-    {poster: "https://br.web.img3.acsta.net/r_1280_720/medias/nmedia/18/87/06/43/19887187.jpg",
-    genre: 'ação'},
-    {poster: "https://br.web.img2.acsta.net/medias/nmedia/18/92/91/03/20224680.jpg",
-    genre: 'ação'},
-    {poster: "https://br.web.img3.acsta.net/pictures/bzp/01/29007.jpg",
-    genre: 'ação'},
-    {poster: "https://br.web.img2.acsta.net/medias/nmedia/18/89/43/82/20052140.jpg",
-    genre: 'ação'},
-    {poster: "https://br.web.img2.acsta.net/r_1280_720/pictures/21/09/07/23/03/4521710.jpg",
-    genre: 'ação'},
-    {poster: "https://br.web.img3.acsta.net/medias/nmedia/18/90/57/96/20121842.jpg",
-    genre: 'a'},
-    {poster: "https://br.web.img3.acsta.net/pictures/17/11/22/22/35/2368944.jpg",
-    genre: 'ação'},
-    {poster: "https://br.web.img3.acsta.net/r_1280_720/medias/nmedia/18/87/06/43/19887187.jpg",
-    genre: 'ação'},
-    {poster: "https://br.web.img2.acsta.net/medias/nmedia/18/92/91/03/20224680.jpg",
-    genre: 'ação'},
-    {poster: "https://br.web.img3.acsta.net/pictures/bzp/01/29007.jpg",
-    genre: 'ação'},
- 
-  ]
+  moviesAction: MovieModel[] = []
 
-  moviesComedy = [
-    {poster: "https://upload.wikimedia.org/wikipedia/pt/thumb/8/84/Ace_ventura_pet_detective.jpg/230px-Ace_ventura_pet_detective.jpg",
-    genre: 'comédia'},
-    {poster: "https://br.web.img3.acsta.net/r_1280_720/medias/nmedia/18/87/11/41/19872151.jpg",
-    genre: 'comédia'},
-    {poster: "https://br.web.img3.acsta.net/r_1280_720/medias/nmedia/18/87/23/64/19873407.jpg",
-    genre: 'comédia'},
-    {poster: "https://br.web.img3.acsta.net/r_1280_720/pictures/21/11/16/17/48/5468162.jpg",
-    genre: 'comédia'},
-    {poster: "https://br.web.img3.acsta.net/pictures/210/061/21006150_20130515172540045.jpg",
-    genre: 'comédia'},
-    {poster: "https://br.web.img2.acsta.net/medias/nmedia/18/96/10/92/20446410.jpg",
-    genre: 'comédia'},
-    {poster: "https://br.web.img3.acsta.net/pictures/210/332/21033244_2013083017165566.jpg",
-    genre: 'comédia'},
-    {poster: "https://upload.wikimedia.org/wikipedia/pt/thumb/8/84/Ace_ventura_pet_detective.jpg/230px-Ace_ventura_pet_detective.jpg",
-    genre: 'comédia'},
-    {poster: "https://br.web.img3.acsta.net/r_1280_720/medias/nmedia/18/87/11/41/19872151.jpg",
-    genre: 'comédia'},
-    {poster: "https://br.web.img3.acsta.net/r_1280_720/medias/nmedia/18/87/23/64/19873407.jpg",
-    genre: 'comédia'},
-    {poster: "https://br.web.img3.acsta.net/r_1280_720/pictures/21/11/16/17/48/5468162.jpg",
-    genre: 'comédia'},
-    {poster: "https://br.web.img3.acsta.net/pictures/210/061/21006150_20130515172540045.jpg",
-    genre: 'comédia'},
-    {poster: "https://br.web.img2.acsta.net/medias/nmedia/18/96/10/92/20446410.jpg",
-    genre: 'comédia'},
-    {poster: "https://br.web.img3.acsta.net/pictures/210/332/21033244_2013083017165566.jpg",
-    genre: 'comédia'},
-  ]
+  moviesComedy: MovieModel[] = []
+
+  lastMoviesAdded: MovieModel[] = []
 
   banners: Banner[] = []
+
   navbg:any
 
   ngOnInit(): void {
     
-    this.service.getBanners()
-    .subscribe(banners => {
-      this.banners = banners
-    })
+      this.bannerService.getBanners()
+      .subscribe(banners => {
 
-    let sidenav = document.querySelector('mat-sidenav-content')
+        this.banners = banners
+      })
 
-    sidenav?.addEventListener('scroll', event => {
+      setTimeout(() => {
+
+        this.movieSevice.getMovie()
+        .subscribe(movie => {
+
+            this.moviesAction = movie.filter(function(movie){
+              return movie.movieGenre === 'ação'
+            })
+
+            this.moviesComedy = movie.filter(function(movie){
+              return movie.movieGenre === 'comédia'
+            })
+
+            this.lastMoviesAdded = movie.sort(function(a,b){
+              return b.id - a.id;
+            })
+      })
+      }, 400);
+
+
+      let sidenav = document.querySelector('mat-sidenav-content')
+
+      sidenav?.addEventListener('scroll', event => {
       
+          if( sidenav?.scrollTop != undefined) {
 
-      if( sidenav?.scrollTop != undefined) {
+            if(sidenav?.scrollTop > 0)
+            {
 
-        if(sidenav?.scrollTop > 0){
+              this.navbg = {
+                'background-color': 'black',
+                'transition-duration': '1s'
+              }   
 
-          this.navbg = {
-            'background-color': 'black'
-          }   
-        }
-        else{
+            }
+            else
+            {
 
-          this.navbg = {
-            'background': 'trasnparent'
+              this.navbg = {
+                'background': 'trasnparent',
+                'transition-duration': '1s'
+              }
+
+            }
           }
-        }
-      }
-    })
+      })
+  }
+
+  watchMovie(movie: MovieModel): void {
+    
+    this.router.navigate(['movie',movie.id])
   }
 }
 

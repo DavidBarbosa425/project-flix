@@ -1,3 +1,4 @@
+import { MovieModel } from './../models/movie.model';
 import { Component, Inject} from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -11,13 +12,13 @@ import { Router } from '@angular/router';
 export class MovieDetailsComponent  {
 
     constructor(
-        @Inject(MAT_DIALOG_DATA) public data: {title: string, synopsis: string},
+        @Inject(MAT_DIALOG_DATA) public movie:MovieModel,
         private route:Router,
         public dialogRef: MatDialogRef<MovieDetailsComponent>
         ) { }
 
     watchMovie(): void{
-        this.route.navigate(['movie'])
+        this.route.navigate(['/movie',this.movie.id])
         this.dialogRef.close();
     }
 

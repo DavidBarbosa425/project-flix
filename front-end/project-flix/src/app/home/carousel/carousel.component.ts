@@ -1,3 +1,4 @@
+import { MovieModel } from './../models/movie.model';
 import { MovieDetailsComponent } from './../movie-details/movie-details.component';
 import { Component, Input, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -15,7 +16,7 @@ export class CarouselComponent{
         private dialog: MatDialog
         ){}
     
-    @Input() movies = [{poster: "", genre: ""}]
+    @Input() movies: MovieModel[] = []
 
     currentItem = 0;
     controls: any
@@ -68,14 +69,11 @@ export class CarouselComponent{
 
     }
 
-    openDialog(){
+    openDialog(movie: MovieModel){
         this.dialog.open(MovieDetailsComponent, {
             height: '500px',
             width: '800px',
-            data: {
-                title: 'Vingadores',
-                synopsis: 'Quando o irmão malvado de Thor, Loki (Tom Hiddleston), ganha acesso ao poder ilimitado do cubo de energia chamado Tesseract, Nick Fury (Samuel L. Jackson), diretor da S.H.I.E.L.D., inicia um esforço de recrutamento de super-heróis para derrotar a ameaça sem precedentes à Terra. . Juntando-se ao "time dos sonhos" de Fury estão o Homem de Ferro (Robert Downey Jr.), o Capitão América (Chris Evans), o Hulk (Mark Ruffalo), Thor (Chris Hemsworth), a Viúva Negra (Scarlett Johansson) e o Gavião Arqueiro (Jeremy Renner).'
-            },
+            data: movie
           });
     }
 

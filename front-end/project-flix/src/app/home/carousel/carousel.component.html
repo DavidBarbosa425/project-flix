@@ -3,7 +3,7 @@
     <button (click)="previous()" class="arrow-left control" aria-label="Previous image">&#171;</button>
     <button (click)="next()" class="arrow-right control" aria-label="Next image">&#187;</button>
 
-    <h1 class="title-genre">{{movies[0].genre}}</h1>
+    <h1 class="title-genre">{{movies[0].movieGenre | lowercase}}</h1>
 
     <div class="gallery-wrapper">
 
@@ -11,7 +11,7 @@
 
             <ng-container *ngFor="let movie of movies" >    
 
-                <img (click)="openDialog()" class="item current-item" src="{{movie.poster}}" alt="">
+                <img (click)="openDialog(movie)" class="item current-item" src="{{movie.movieCover}}" alt="">
               
             </ng-container>
 
